@@ -50,10 +50,10 @@ const uploadSingleExample = async function () {
 // 	secret: account.PINATA_SECURITY,
 // });
 
-// nftToolbox.initFileStorageService({
-// 	service: "nft.storage",
-// 	key: account.NFT_STORAGE_KEY,
-// });
+nftToolbox.initFileStorageService({
+	service: "nft.storage",
+	key: account.NFT_STORAGE_KEY,
+});
 
 // nftToolbox.initFileStorageService({
 // 	service: "storj",

@@ -6,18 +6,18 @@ nftToolbox.initContract({
 	name: "DemoContract",
 	symbol: "DEMO",
 	dir: path.join(__dirname, "Contracts"),
-	standard: "ERC721",
+	standard: "ERC1155",
 	connection: JSON.parse(
 		fs.readFileSync(path.join(__dirname, "connection.json")).toString()
 	),
 	deployed: {
-		address: "0x5009278830fB58551bD518157cBb0002eB5DC80E",
+		address: "0xe7f9a7D7945aCfa9180c60c2A4A8669566471faE",
 		abi: fs.readFileSync(path.join(__dirname, "abi.json")).toString(),
 	},
 });
 
 const demoMintNFT = async () => {
-	const address = "0x7304Cf13eEE8c8C20C6569E2024fB9079184F430";
+	const address = "0xb2927B4Da693f685F54cf8355D1654116fF79346";
 
 	let bal = await nftToolbox.readContract("balanceOf", [address]);
 	console.log("Balance: ", bal.toString());

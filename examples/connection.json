@@ -1,12 +1,12 @@
 {
-	"network": "",
-	"provider": {
-		"infura": {
-			"projectId": "",
-			"projectSecret": ""
-		}
-	},
-	"wallet": {
-		"privateKey": ""
-	}
+  "network": "maticmum",
+  "provider": {
+    "infura": {
+      "projectId": "9531447d52bf4f64912c1e245be34e6e",
+      "projectSecret": "BPLaC+KLxnke8hmiAtymxxGlxxLarm9xfXmYCAI6M+zkB24ZQgv7Mw"
+    }
+  },
+  "wallet": {
+    "privateKey": "c04f2876f3691d44fdba3592bf800c05516d419f10ac269a7a565c21dfda57fa"
+  }
 }

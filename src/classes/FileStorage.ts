@@ -42,7 +42,7 @@ export abstract class FileStorage {
 		metadata.image = `${this.serviceBaseURL}/${assetCID}`;
 		console.log("Uploading Metadata...");
 		const metadataCID = await this.uploadJSONToService(
-			JSON.stringify(metadata)
+		metadata
 		);
 		console.log("Upload Complete");
 		return { metadataCID, assetCID };

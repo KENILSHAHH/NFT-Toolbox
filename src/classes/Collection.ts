@@ -350,7 +350,7 @@ export class Collection {
 							throw new Error("Schema not found");
 						}
 						ctx.drawImage(
-							img,
+							img!,
 							0,
 							0,
 							this.schema.format.width,
