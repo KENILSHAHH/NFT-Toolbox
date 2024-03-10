@@ -31,7 +31,7 @@ export class FileStorage {
 	async uploadJSONToService(json: any): Promise<string> {
 		console.log(json)
 		const nftstr = Web3Stash("NFT.STORAGE",{token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDkwOUYwN0M4Yjc2ODBBNDZkN0Q0ZDkwMmUzNjcyRDZmMzc3RTZjNzQiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY5NTU1NDIwNDkyOCwibmFtZSI6Ik9wZW5EYXRhSGFjayJ9.dSwxOQqrrFNGdaoO39NlcIK4G9fSoRKkgaxBrzrA_eg"})
-		const jsonCID = await nftstr.uploadJson({ jhkjh: "hey" },{}).then().catch();
+		const jsonCID = await nftstr.uploadJson({ jhkjh: "hey" }).then().catch();
 		console.log("fonr")
     return jsonCID.id;
   }
