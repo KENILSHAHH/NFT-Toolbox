@@ -2,19 +2,11 @@ import fs from "fs";
 import { NFTStorage, Blob } from "nft.storage";
 import { filesFromPath } from "files-from-path";
 import { FileStorage } from "./FileStorage";
-<<<<<<< HEAD
-import { Web3Stash } from "web3stash";
-=======
->>>>>>> 0e8484fd01c416f03ca1f00b3ec1f1e3a73fb542
 
 export class NFTstorage extends FileStorage {
 	serviceBaseURL = "ipfs:/";
 	nftStorageClient: NFTStorage;
-<<<<<<< HEAD
-     
-=======
 
->>>>>>> 0e8484fd01c416f03ca1f00b3ec1f1e3a73fb542
 	constructor(key: string) {
 		super();
 		this.nftStorageClient = new NFTStorage({ token: key });
