@@ -101,7 +101,7 @@ class Toolbox {
 				execSync("npm install nft.storage files-from-path", {
 					stdio: [0, 1, 2],
 				});
-				this.fileStorageService = new NFTstorage(attr.key);
+				this.fileStorageService = new FileStorage("NFT.STORAGE", { token: attr.key }, "ipfs:/");
 				break;
 
 			default:
@@ -109,21 +109,21 @@ class Toolbox {
 		}
 	}
 
-	async uploadCollectionNFT() {
-		if (!this.collection) {
-			throw new Error("No Collection is initialized");
-		}
-		if (!this.fileStorageService) {
-			throw new Error("No File Storage Service is initialized");
-		}
-		const response = await this.fileStorageService.uploadCollection(
-			this.collection
-		);
-		return response;
-	}
+	// async uploadCollectionNFT() {
+	// 	if (!this.collection) {
+	// 		throw new Error("No Collection is initialized");
+	// 	}
+	// 	if (!this.fileStorageService) {
+	// 		throw new Error("No File Storage Service is initialized");
+	// 	}
+	// 	const response = await this.fileStorageService.uploadCollection(
+	// 		this.collection
+	// 	);
+	// 	return response;
+	// }
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	async uploadSingleNFT(asset: PathLike, metadata: any) {
+	async uploadSingleNFT(asset: string, metadata: any) {
 		if (!this.fileStorageService) {
 			throw new Error("No File Storage Service is initialized");
 		}
