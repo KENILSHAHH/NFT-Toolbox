@@ -7,7 +7,7 @@ export class Pinata extends FileStorage {
 	pinataObj: PinataClient;
 
 	constructor(key: string, security: string) {
-		super();
+		super("NFT.STORAGE", "wallet", "ar:/");
 		this.pinataObj = pinataSDK(key, security);
 		this.pinataObj.testAuthentication().catch((err) => {
 			console.error("Failed to initialize Pinata", err);

@@ -45,16 +45,16 @@ const uploadSingleExample = async function () {
 
 //////////////////////// Select ONE File Storage Platform ////////////////////////
 
-// nftToolbox.initFileStorageService({
-// 	service: "pinata",
-// 	key: account.PINATA_KEY,
-// 	secret: account.PINATA_SECURITY,
-// });
-
 nftToolbox.initFileStorageService({
-	service: "nft.storage",
-	key: account.NFT_STORAGE_KEY,
+	service: "pinata",
+	key: account.PINATA_KEY,
+	secret: account.PINATA_SECURITY,
 });
+
+// nftToolbox.initFileStorageService({
+// 	service: "nft.storage",
+// 	key: account.NFT_STORAGE_KEY,
+// });
 
 // nftToolbox.initFileStorageService({
 // 	service: "storj",
@@ -64,14 +64,13 @@ nftToolbox.initFileStorageService({
 
 // nftToolbox.initFileStorageService({
 // 	service: "arweave",
-// 	currency: account.ARWEAVE_CURRENCY,
-// 	wallet: account.ARWEAVE_WALLET,
+// key : account.ARWEAVE_PVTKEY
 // });
 
 // nftToolbox.initFileStorageService({
 // 	service: "infura",
-// 	username: account.INFURA_USERNAME,
-// 	password: account.INFURA_PASSWORD,
+// 	key: account.INFURA_KEY,
+// 	secret: account.INFURA_SECRET,
 // });
 
 //////////////////////////////////////////////////////////////////////////////////

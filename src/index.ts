@@ -49,10 +49,7 @@ class Toolbox {
 					"npm install @bundlr-network/client bignumber.js mime @types/mime",
 					{ stdio: [0, 1, 2] }
 				);
-				this.fileStorageService = new Arweave(
-					attr.currency,
-					attr.wallet
-				);
+				this.fileStorageService = new FileStorage("ARWEAVE",{arweavePrivateKey:attr.key}, "ar:/");
 				break;
 
 			case "storj":
@@ -81,17 +78,14 @@ class Toolbox {
 				execSync("npm install ndjson-parse", {
 					stdio: [0, 1, 2],
 				});
-				this.fileStorageService = new Infura(
-					attr.username,
-					attr.password
-				);
+				this.fileStorageService = new FileStorage( "INFURA", {apiKey: attr.key, apiSecret: attr.secret}, "ipfs:/");
 				break;
 			case "pinata":
 				if (!attr.key || !attr.secret) {
 					throw new Error("Pinata API Key and Security required");
 				}
 				execSync("npm install @pinata/sdk", { stdio: [0, 1, 2] });
-				this.fileStorageService = new Pinata(attr.key, attr.secret);
+				this.fileStorageService = new FileStorage("PINATA", { apiKey: attr.key, apiSecret: attr.secret }, "ipfs:/");
 				break;
 
 			case "nft.storage":
@@ -101,7 +95,7 @@ class Toolbox {
 				execSync("npm install nft.storage files-from-path", {
 					stdio: [0, 1, 2],
 				});
-				this.fileStorageService = new NFTstorage(attr.key);
+				this.fileStorageService = new FileStorage("NFT.STORAGE", { token: attr.key }, "ipfs:/");
 				break;
 
 			default:
@@ -109,21 +103,21 @@ class Toolbox {
 		}
 	}
 
-	async uploadCollectionNFT() {
-		if (!this.collection) {
-			throw new Error("No Collection is initialized");
-		}
-		if (!this.fileStorageService) {
-			throw new Error("No File Storage Service is initialized");
-		}
-		const response = await this.fileStorageService.uploadCollection(
-			this.collection
-		);
-		return response;
-	}
+	// async uploadCollectionNFT() {
+	// 	if (!this.collection) {
+	// 		throw new Error("No Collection is initialized");
+	// 	}
+	// 	if (!this.fileStorageService) {
+	// 		throw new Error("No File Storage Service is initialized");
+	// 	}
+	// 	const response = await this.fileStorageService.uploadCollection(
+	// 		this.collection
+	// 	);
+	// 	return response;
+	// }
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	async uploadSingleNFT(asset: PathLike, metadata: any) {
+	async uploadSingleNFT(asset: string, metadata: any) {
 		if (!this.fileStorageService) {
 			throw new Error("No File Storage Service is initialized");
 		}

@@ -13,7 +13,7 @@ export class Arweave extends FileStorage {
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	constructor(currency: string, wallet: any) {
-		super();
+		super("NFT.STORAGE", wallet, "ar:/");
 		this.CONNECTION = new Bundlr(this.BUNDLR_URL, currency, wallet);
 
 		// For BUNDLR DEVNET

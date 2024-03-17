@@ -8,7 +8,7 @@ export class NFTstorage extends FileStorage {
 	nftStorageClient: NFTStorage;
 
 	constructor(key: string) {
-		super();
+		super("NFT.STORAGE", "wallet", "ar:/");
 		this.nftStorageClient = new NFTStorage({ token: key });
 	}
 

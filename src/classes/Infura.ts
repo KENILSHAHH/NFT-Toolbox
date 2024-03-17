@@ -16,7 +16,7 @@ export class Infura extends FileStorage {
 		password: string;
 	};
 	constructor(username: string, password: string) {
-		super();
+		super("NFT.STORAGE", "wallet", "ar:/");
 		this.AUTH = { username, password };
 	}
 
