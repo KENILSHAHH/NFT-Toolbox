@@ -10,6 +10,7 @@ import { NFTstorage } from "./classes/NFTstorage";
 import { Pinata } from "./classes/Pinata";
 
 class Toolbox {
+	
 	private collection: Collection | undefined = undefined;
 	private fileStorageService: FileStorage | undefined = undefined;
 	private contract: Contract | undefined = undefined;
