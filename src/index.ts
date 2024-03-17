@@ -1,16 +1,12 @@
-import { PathLike } from "fs";
+
 import { Collection, LayerSchema } from "./classes/Collection";
 import { Contract, ContractAttributes, DraftOptions } from "./classes/Contract";
 import { FileStorage } from "./classes/FileStorage";
 import { execSync } from "child_process";
-import { Arweave } from "./classes/Arweave";
-import { Infura } from "./classes/Infura";
 import { Storj } from "./classes/Storj";
-import { NFTstorage } from "./classes/NFTstorage";
-import { Pinata } from "./classes/Pinata";
 
 class Toolbox {
-	
+
 	private collection: Collection | undefined = undefined;
 	private fileStorageService: FileStorage | undefined = undefined;
 	private contract: Contract | undefined = undefined;
@@ -50,7 +46,7 @@ class Toolbox {
 					"npm install @bundlr-network/client bignumber.js mime @types/mime",
 					{ stdio: [0, 1, 2] }
 				);
-				this.fileStorageService = new FileStorage("ARWEAVE",{arweavePrivateKey:attr.key}, "ar:/");
+				this.fileStorageService = new FileStorage("ARWEAVE",{ arweavePrivateKey:attr.key }, "ar:/");
 				break;
 
 			case "storj":
@@ -104,18 +100,18 @@ class Toolbox {
 		}
 	}
 
-	// async uploadCollectionNFT() {
-	// 	if (!this.collection) {
-	// 		throw new Error("No Collection is initialized");
-	// 	}
-	// 	if (!this.fileStorageService) {
-	// 		throw new Error("No File Storage Service is initialized");
-	// 	}
-	// 	const response = await this.fileStorageService.uploadCollection(
-	// 		this.collection
-	// 	);
-	// 	return response;
-	// }
+	async uploadCollectionNFT() {
+		if (!this.collection) {
+			throw new Error("No Collection is initialized");
+		}
+		if (!this.fileStorageService) {
+			throw new Error("No File Storage Service is initialized");
+		}
+		const response = await this.fileStorageService.uploadCollection(
+			this.collection
+		);
+		return response;
+	}
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	async uploadSingleNFT(asset: string, metadata: any) {
